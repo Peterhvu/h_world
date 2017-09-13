@@ -1,0 +1,23 @@
+h1 {
+    text-align: center
+}
+
+h2 {
+    text-align: center;
+    background: yellow;
+    height: auto;
+    line-height: 25px;
+}
+
+.getBtn {
+    width: 200px;
+    height: 50;
+    line-height: 50px;
+    background: #aadbc1;
+    font-size: 1.5em;
+    text-align: center;
+    border-radius: 10px;
+    margin: auto
+}
+
+.mainContent { margin-top: 20px}
