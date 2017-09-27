@@ -195,8 +195,8 @@ input#searchBox,
 .itm {
 	display: inline-block;
 	background: #fff7e7;
-	margin: .5%;
-	width: 49%;
+	margin: 6px 2px;
+	width: 48%;
 	height: auto;
 	border-radius: 14px 0px;
 	color: blue;
