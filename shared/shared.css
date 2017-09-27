@@ -120,11 +120,6 @@ a {
     float: right
 }
 
-.Epn .itm iframe {
-	min-height: 720px;
-	min-width: 1280px
-}
-
 .selectedBG {
 	background: burlywood !important
 }
