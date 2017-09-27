@@ -187,11 +187,16 @@ input#searchBox,
 	min-height: 100px
 }
 
+.Phb ul {
+    margin: 0px;
+    padding: 0px
+}
+
 .itm {
 	display: inline-block;
 	background: #fff7e7;
-	margin: 4px;
-	width: 47%;
+	margin: .5%;
+	width: 49%;
 	height: auto;
 	border-radius: 14px 0px;
 	color: blue;
