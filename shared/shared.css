@@ -222,6 +222,11 @@ input#searchBox,
 	padding-bottom: 4px;
 }
 
+iframe.activeVidPlayer {
+    width: 350px;
+    height: 250px;
+}
+
 .crossRef {
 	clear: both;
 	display: block;
