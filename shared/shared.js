@@ -1,5 +1,6 @@
 var ua = navigator.userAgent.toLowerCase(),
     isIOS = (ua.match(/i(phone|pod|pad)/)!=null),
+    isIPad = (ua.match(/ipad/) != null),
     isAndrd = (ua.match(/android/)!= null),
     isMac = (ua.match(/macintosh/) != null),
     appName = window.location.pathname.split("/").pop().replace('.html', '')
