@@ -7,7 +7,7 @@ var ua = navigator.userAgent.toLowerCase(),
     ;
     
 console.log("userAgent: ", ua);
-console.log("isIOS: ", isIOS, " isAndrd: ", isAndrd, " isMac: ", isMac);
+console.log("isIOS: ", isIOS, "isIPad: ", isIPad, " isAndrd: ", isAndrd, " isMac: ", isMac);
 
     
 $(document).ready(function () {    
