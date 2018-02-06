@@ -317,3 +317,9 @@ input:checked+.slider:before {
 .slider.round:before {
     border-radius: 50%;
 }
+
+.hdSwitch {
+    clear: both;
+    font-size: 1.3em;
+    text-align: center
+}
