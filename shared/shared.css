@@ -230,6 +230,32 @@ input#searchBox {
     padding-bottom: 4px;
 }
 
+.infoBtn,
+.likeBtn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px;
+    cursor: pointer
+}
+
+.info {
+    height: 100px;
+    overflow: scroll
+}
+
+.info p {
+    height: auto
+}
+
+.likeBtn {
+    left: 0
+}
+
+.likedBG {
+    background-color: pink !important
+}
+
 iframe.activeVidPlayer {
     width: 350px;
     height: 250px;
