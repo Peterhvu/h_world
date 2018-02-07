@@ -65,3 +65,9 @@ function exitFullScreenVideo() {
 		vids[0].pause().webkitExitFullScreen();
 	}
 }
+
+
+// on fancybox close, pause video.
+$(document).on('afterClose.fb', function (e, instance, slide) {
+    $('.activeVidPlayer').get(0).pause();
+});
