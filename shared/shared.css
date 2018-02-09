@@ -25,7 +25,14 @@ a {
     display: block
 }
 
-.OneWebApp .segments li {
+.menuBtn {
+    top: 25px;
+    right: 10px;
+    cursor: pointer;
+    color: blue
+}
+
+.segments li {
     float: left;
     list-style: none;
     width: 95%;
