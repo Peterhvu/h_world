@@ -247,6 +247,15 @@ input#searchBox {
     cursor: pointer
 }
 
+.likeBtn {
+    left: 0;
+    width: 20px;
+}
+
+.likedBG {
+    background-color: pink !important
+}
+
 .info {
     height: 100px;
     overflow: scroll
@@ -254,14 +263,6 @@ input#searchBox {
 
 .info p {
     height: auto
-}
-
-.likeBtn {
-    left: 0
-}
-
-.likedBG {
-    background-color: pink !important
 }
 
 iframe.activeVidPlayer {
