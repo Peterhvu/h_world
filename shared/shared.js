@@ -87,8 +87,8 @@ function resetPaging() {
 //  ------- vids func.
 
 function enterFullScreenVideo(dom) {
-    if (isIOS) dom.webkitEnterFullscreen().play();
-    else if (isAndrd) dom.mozRequestFullScreen().play();
+    if (isIOS) dom.play().webkitEnterFullscreen();
+    else if (isAndrd) dom.play().mozRequestFullScreen();
 }
 
 /// for iOS use only.
