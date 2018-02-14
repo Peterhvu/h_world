@@ -87,13 +87,21 @@ function resetPaging() {
 //  ------- vids func.
 
 function enterFullScreenVideo(dom) {
-    if (isIOS) dom.play().webkitEnterFullscreen();
-    else if (isAndrd) dom.play().mozRequestFullScreen();
-}
+    if (isIOS) {
+        dom.play();
+        dom.addEventListener('loadedmetadata', function() {
+            dom.webkitEnterFullscreen();
+        });
+    }
+    if (isAndrd) dom.play().mozRequestFullScreen();
 
 /// for iOS use only.
 function exitFullScreenVideo() {
-    if ($('video.activeVidPlayer')) $('video.activeVidPlayer').get(0).pause().webkitExitFullScreen();
+    var video = $('video.activeVidPlayer').get(0);
+    if (video) {
+        video.webkitExitFullScreen();
+        video.pause();
+    }
 }
 
 // insert fancy box script, css and .vidLarge button.
