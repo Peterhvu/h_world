@@ -94,6 +94,7 @@ function enterFullScreenVideo(dom) {
         });
     }
     if (isAndrd) dom.play().mozRequestFullScreen();
+}
 
 /// for iOS use only.
 function exitFullScreenVideo() {
