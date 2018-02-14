@@ -93,9 +93,16 @@ function enterFullScreenVideo(dom) {
 
 /// for iOS use only.
 function exitFullScreenVideo() {
-    $('video.activeVidPlayer').get(0).pause().webkitExitFullScreen();
+    if ($('video.activeVidPlayer')) $('video.activeVidPlayer').get(0).pause().webkitExitFullScreen();
 }
 
+// insert fancy box script, css and .vidLarge button.
+function insertFancyBox() {
+   $('head>script').after(
+       '<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js"> <\/script> <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css">'
+   );
+   $('.clearout').before('<div class="clearout vidLarge" onclick="$.fancybox.open( $(\'.activeVidPlayer\'))">［  ］<\/div>');
+}
 
 // on fancybox close, pause video.
 $(document).on('afterClose.fb', function (e, instance, slide) {
