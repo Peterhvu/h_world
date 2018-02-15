@@ -26,9 +26,14 @@ $(document).ready(function () {
     }
 
     if (!$('.menuBtn').length) {
-        $('h1').after('<div class="menuBtn" href="#" onclick="toggleMenu();return 0;">&#9776;</div>');
+        $('h1').after('<div class="menuBtn" onclick="toggleMenu();">&#9776;</div>');
         $('.homeBtn').empty().append('&#8962;')
     }
+    
+    if (isMac) window.onresize = function(event) {
+        var marLeft = (window.innerWidth % ($('.itm').width() + 6)) / 2;
+        imgSection.css('margin-left', marLeft)
+    };
 });
 
 function getMenuList(callback) {
