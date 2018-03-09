@@ -4,6 +4,8 @@ var ua = navigator.userAgent.toLowerCase(),
     isAndrd = (ua.match(/android/) != null),
     isMac = (ua.match(/macintosh/) != null),
     appName = window.location.pathname.split("/").pop().replace('.html', ''),
+    imgSection = $('#panes'),
+    myJsonBaseUrl = "https://api.myjson.com/bins/",
     menuList;
 
 console.log("userAgent: ", ua);
