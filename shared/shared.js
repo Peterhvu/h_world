@@ -38,30 +38,32 @@ $(document).ready(function () {
     };
 });
 
-function getMenuList(callback) {
-    var segmentsJsonUrl = "https://api.myjson.com/bins/10vvwl";
-    $.getJSON(segmentsJsonUrl, function (data, textStatus, jqXHR) {
-        menuList = data.Segments;
-
-        var ul = $(document.createElement('ul')).addClass('segments').hide();
-        $.each(menuList, function (i, seg) {
-            ul.append('<li><a href="' + seg + '.html">' + seg)
-        })
-
-        ul.insertAfter('h1');
-        callback();
-    }).fail(function (jqxhr, textStatus, error) {
-        $('#segmentInput').show();
+function getJsonBins(id, callback) { 
+    $.getJSON(myJsonBaseUrl + id, function (data) {
+        callback(data);
     });
 }
 
-function toggleMenu() {
-    if (!menuList) {
-        getMenuList(function () {
-            $('.segments').slideToggle()
-        })
-    } else $('.segments').slideToggle()
+function getMenuList() {
+    getJsonBins('10vvwl', function (data) {
+        menuList = data.Segments;
+
+        if (menuList.length > 0) {
+            var ul = $(document.createElement('ul')).addClass('segments').hide();
+            $.each(menuList, function (i, seg) {
+                ul.append('<li><a href="' + seg + '.html">' + seg)
+            })
+            ul.insertAfter('h1').slideToggle();
+        } else $('#segmentInput').show();
+
+    })
 }
+
+function toggleMenu() {
+    if (!menuList) getMenuList();
+    else $('.segments').slideToggle()
+}
+
 // ----- basic navigator func.
 
 function loadNextPage() {
@@ -128,11 +130,11 @@ $(document).on('afterClose.fb', function (e, instance, slide) {
 //  -------------- YQL utilities.
 
 // return a yahoo yql url to parse html of given source url and xpath into json obj.
-function getYqlUrlFromHtml(whereUrl = '', xPath = '', isDiag = false) {
+function getYqlUrlFromHtml(whereUrl, xPath, isDiag = false) {
     return "https://query.yahooapis.com/v1/public/yql?q=select * from htmlstring where url='" + encodeURIComponent(whereUrl + "' and xpath='" + xPath) + "'&format=json&env=store://datatables.org/alltableswithkeys&diagnostics=" + isDiag;
 }
 
 // return a yahoo yql url to parse json of given source url. This allow to get json from source that have CORP restricted.
-function getYqlUrlFromJson(whereUrl = '', isDiag = false) {
+function getYqlUrlFromJson(whereUrl, isDiag = false) {
     return "https://query.yahooapis.com/v1/public/yql?q=select * from json where url='" + encodeURIComponent(whereUrl) + "'&format=json&diagnostics=" + isDiag;
 }
