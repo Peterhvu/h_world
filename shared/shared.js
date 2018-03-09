@@ -130,16 +130,32 @@ $(document).on('afterClose.fb', function (e, instance, slide) {
 //  -------------- YQL utilities.
 
 // return a yahoo yql url to parse html of given source url and xpath into json obj.
-function getYqlUrlFromHtml(whereUrl, xPath, isDiag) {
-    (isDiag)?isDiag=true:isDiag=false;
+function createYqlHtmlUrl(whereUrl, xPath, isDiag) {
+    (isDiag) ? isDiag = true: isDiag = false;
     return "https://query.yahooapis.com/v1/public/yql?q=select * from htmlstring where url='" +
-        encodeURIComponent(whereUrl + "' and xpath='" + xPath) +
-        "'&format=json&env=store://datatables.org/alltableswithkeys&diagnostics=" + isDiag;
+encodeURIComponent(whereUrl + "' and xpath='" + xPath) +
+"'&format=json&env=store://datatables.org/alltableswithkeys&diagnostics=" + isDiag;
 }
 
-// return a yahoo yql url to parse json of given source url. This allow to get json from sourcethat have CORP restricted.
-function getYqlUrlFromJson(whereUrl, isDiag) {
-    (isDiag)?isDiag=true:isDiag=false;
+// return a yahoo yql url to parse json of given source url. 
+function createYqlJsonUrl(whereUrl, isDiag) {
+    (isDiag) ? isDiag = true: isDiag = false;
     return "https://query.yahooapis.com/v1/public/yql?q=select * from json where url='" + encodeURIComponent(
-        whereUrl) + "'&format=json&diagnostics=" + isDiag;
+whereUrl) + "'&format=json&diagnostics=" + isDiag;
+}
+
+// have yahoo yql parse html into json
+function getJsonUsingYqlHtml(fromHtmlUrl, xPath, callback) {
+    var yqlUrl = createYqlHtmlUrl(fromHtmlUrl, xPath);
+    $.getJSON(yqlUrl, function (data) {
+        callback(data.query.results.result);
+    })
+}
+
+// This allow to get json from source that have CORP restricted.
+function getJsonUsingYqlJson(fromJsonUrl, callback) {
+    var yqlUrl = createYqlJsonUrl(fromJsonUrl);
+    $.getJSON(yqlUrl, function (data) {
+        callback(data.query.results.json);
+    })
 }
