@@ -374,5 +374,11 @@ input:checked+.slider:before {
 .fancybox-slide>* {
     padding: 0px;
     margin: 50px auto;
-    max-width: 100%;
+    max-width: 90%;
+    max-height: 90%;
+}
+
+.fancybox-slide>iframe.activeVidPlayer {
+    width: 90%;
+    height: 90%;
 }
