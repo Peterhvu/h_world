@@ -382,3 +382,9 @@ input:checked+.slider:before {
     width: 90%;
     height: 90%;
 }
+
+
+/*------- unwanted stuff, just add selector to the list -----*/
+.collection-box-sidebar {
+    display: none !important
+}
