@@ -38,12 +38,6 @@ $(document).ready(function () {
     };
 });
 
-function getJsonBins(id, callback) { 
-    $.getJSON(myJsonBaseUrl + id, function (data) {
-        callback(data);
-    });
-}
-
 function getMenuList() {
     getJsonBins('10vvwl', function (data) {
         menuList = data.Segments;
@@ -174,4 +168,33 @@ function getJsonUsingYqlXml(fromXmlUrl, callback) {
     $.getJSON(yqlUrl, function (data) {
         callback(data.query.results);
     })
+}
+
+//  -------------- myJson utilities.
+
+function getJsonBins(id, callback) { 
+    $.getJSON(myJsonBaseUrl + id, function (data) {
+        callback(data);
+    });
+}
+
+// if success callback(true), esle false
+function updateJsonBinOfLikes(binId, likeId, callback) {
+    getJsonBins(binId, function (existingLikeIds) {
+        // if not yet liked, add it, else remove it.
+        if (existingLikeIds.indexOf(likeId) < 0) existingLikeIds.push(likeId);
+        else existingLikeIds.splice(existingLikeIds.indexOf(likeId), 1);
+
+        $.ajax({
+            type: "PUT",
+            url: myJsonBaseUrl + binId,
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify(existingLikeIds),
+            success: function (response) {
+                callback(true)
+            }
+        }).fail(function (jqXHR, textStatus, errorThrown) {
+            callback(false);
+        });
+    });
 }
