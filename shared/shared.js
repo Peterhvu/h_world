@@ -145,6 +145,13 @@ function createYqlJsonUrl(whereUrl, isDiag) {
 whereUrl) + "'&format=json&diagnostics=" + isDiag;
 }
 
+// return a yahoo yql url to parse xml of given source url. 
+function createYqlXmlUrl(whereUrl, isDiag) {
+    (isDiag) ? isDiag = true: isDiag = false;
+    return "https://query.yahooapis.com/v1/public/yql?q=select * from xml where url='" + encodeURIComponent(
+whereUrl) + "'&format=json&diagnostics=" + isDiag;
+}
+
 // have yahoo yql parse html into json
 function getJsonUsingYqlHtml(fromHtmlUrl, xPath, callback) {
     var yqlUrl = createYqlHtmlUrl(fromHtmlUrl, xPath);
@@ -158,5 +165,13 @@ function getJsonUsingYqlJson(fromJsonUrl, callback) {
     var yqlUrl = createYqlJsonUrl(fromJsonUrl);
     $.getJSON(yqlUrl, function (data) {
         callback(data.query.results.json);
+    })
+}
+
+// This allow to get json from source that have CORP restricted.
+function getJsonUsingYqlXml(fromXmlUrl, callback) {
+    var yqlUrl = createYqlXmlUrl(fromXmlUrl);
+    $.getJSON(yqlUrl, function (data) {
+        callback(data.query.results);
     })
 }
