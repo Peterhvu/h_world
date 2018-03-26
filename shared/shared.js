@@ -118,6 +118,7 @@ function insertFancyBox() {
 
 // on fancybox close, pause video.
 $(document).on('afterClose.fb', function (e, instance, slide) {
+    $('iframe.activeVidPlayer').remove();
     if ($('video.activeVidPlayer').get(0)) $('.activeVidPlayer').show().get(0).pause();
 });
 
