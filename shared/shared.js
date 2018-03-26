@@ -27,10 +27,8 @@ $(document).ready(function () {
         $('linkHi').removeAttr('target');
     }
 
-    if (!$('.menuBtn').length) {
-        $('h1').after('<div class="menuBtn" onclick="toggleMenu();">&#9776;</div>');
-        $('.homeBtn').empty().append('&#8962;')
-    }
+    // insert home and menu buttons.
+    $('h1').after('<a class="homeBtn" href="OneWebApp.html"> &#8962; </a><div class="menuBtn" onclick="toggleMenu();">&#9776;</div>');
     
     if (isMac) window.onresize = function(event) {
         var marLeft = (window.innerWidth % ($('.itm').width() + 6)) / 2;
