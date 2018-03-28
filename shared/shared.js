@@ -6,7 +6,8 @@ var ua = navigator.userAgent.toLowerCase(),
     appName = window.location.pathname.split("/").pop().replace('.html', ''),
     imgSection = $('#panes'),
     myJsonBaseUrl = "https://api.myjson.com/bins/",
-    menuList;
+    menuList, 
+    pagingFirst = 0;
 
 console.log("userAgent: ", ua);
 console.log("isIOS: ", isIOS, "isIPad: ", isIPad, " isAndrd: ", isAndrd, " isMac: ", isMac);
@@ -82,7 +83,7 @@ function paginNextSet() {
 }
 
 function resetPaging() {
-    resetPagingStartWith(0);
+    resetPagingStartWith(pagingFirst);
 }
 
 function resetPagingStartWith(numb) {
