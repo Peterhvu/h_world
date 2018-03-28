@@ -89,7 +89,6 @@ function resetPaging() {
 function resetPagingStartWith(numb) {
     $('#vLinks .paging').empty().removeClass('selectedBG').each(function (i, elm) {
         $(elm).html(i + numb);
-        console.log(i + numb);
     });
 }
 
