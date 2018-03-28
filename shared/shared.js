@@ -59,29 +59,36 @@ function toggleMenu() {
 // ----- basic navigator func.
 
 function loadNextPage() {
-    if ($('#vLinks .selectedBG').length > 0) $('#vLinks .selectedBG:first+.paging').click();
-    else $('#vLinks .paging:first').click();
+    if ($('.paging.selectedBG').length > 0) {
+        if ($('.paging.selectedBG').is(':last-child')) {
+            paginNextSet();
+            loadNextPage();
+        } else $('.paging.selectedBG + .paging').click();
+    } else $('#vLinks .paging:first').click();
 }
 
 function paginPreSet() {
-    if ($('#vLinks .paging:first').text() > 1) {
-        $('#vLinks .paging').each(function () {
-            $(this).removeClass('selectedBG');
-            this.textContent = parseInt(this.textContent) - 10;
-        });
+    var currentFirst = parseInt($('#vLinks .paging').first().text());
+    if (currentFirst > 1) {
+        $('.paging.selectedBG').removeClass('selectedBG');
+        resetPagingStartWith(currentFirst - $('#vLinks .paging').length);
     }
 }
 
 function paginNextSet() {
-    $('#vLinks .paging').each(function () {
-        $(this).removeClass('selectedBG');
-        this.textContent = parseInt(this.textContent) + 10;
-    });
+    $('.paging.selectedBG').removeClass('selectedBG');
+    var currentLast = parseInt($('#vLinks .paging').last().text());
+    resetPagingStartWith(currentLast + 1);
 }
 
 function resetPaging() {
+    resetPagingStartWith(0);
+}
+
+function resetPagingStartWith(numb) {
     $('#vLinks .paging').empty().removeClass('selectedBG').each(function (i, elm) {
-        $(elm).html(i);
+        $(elm).html(i + numb);
+        console.log(i + numb);
     });
 }
 
