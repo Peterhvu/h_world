@@ -7,7 +7,8 @@ var ua = navigator.userAgent.toLowerCase(),
     imgSection = $('#panes'),
     myJsonBaseUrl = "https://api.myjson.com/bins/",
     menuList, 
-    pagingFirst = 0;
+    pagingFirst = 0,
+    isYqlDiag = false ;
 
 console.log("userAgent: ", ua);
 console.log("isIOS: ", isIOS, "isIPad: ", isIPad, " isAndrd: ", isAndrd, " isMac: ", isMac);
@@ -155,7 +156,7 @@ whereUrl) + "'&format=json&diagnostics=" + isDiag;
 
 // have yahoo yql parse html into json
 function getJsonUsingYqlHtml(fromHtmlUrl, xPath, callback) {
-    var yqlUrl = createYqlHtmlUrl(fromHtmlUrl, xPath);
+    var yqlUrl = createYqlHtmlUrl(fromHtmlUrl, xPath, isYqlDiag);
     $.getJSON(yqlUrl, function (data) {
         callback(data.query.results.result);
     })
@@ -163,7 +164,7 @@ function getJsonUsingYqlHtml(fromHtmlUrl, xPath, callback) {
 
 // This allow to get json from source that have CORP restricted.
 function getJsonUsingYqlJson(fromJsonUrl, callback) {
-    var yqlUrl = createYqlJsonUrl(fromJsonUrl);
+    var yqlUrl = createYqlJsonUrl(fromJsonUrl, isYqlDiag);
     $.getJSON(yqlUrl, function (data) {
         callback(data.query.results.json);
     })
@@ -171,7 +172,7 @@ function getJsonUsingYqlJson(fromJsonUrl, callback) {
 
 // This allow to get json from source that have CORP restricted.
 function getJsonUsingYqlXml(fromXmlUrl, callback) {
-    var yqlUrl = createYqlXmlUrl(fromXmlUrl);
+    var yqlUrl = createYqlXmlUrl(fromXmlUrl, isYqlDiag);
     $.getJSON(yqlUrl, function (data) {
         callback(data.query.results);
     })
