@@ -38,6 +38,13 @@ $(document).ready(function () {
     };
 });
 
+
+function reCenterContent() {
+    var margLeft = (window.innerWidth % ($('.itm').width() + 6)) / 2;
+    imgSection.css('margin-left', margLeft);
+};
+window.onresize = function (event) { reCenterContent() };
+
 function getMenuList() {
     getJsonBins('10vvwl', function (data) {
         menuList = data.Segments;
