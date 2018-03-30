@@ -12,7 +12,14 @@ h2 {
     padding: 10px;
 }
 
-.homeBtn, .menuBtn {
+ul,
+ol {
+    margin: 0px;
+    padding: 0px;
+}
+
+.homeBtn,
+.menuBtn {
     width: 50px;
     height: 50px;
     position: absolute;
@@ -369,8 +376,8 @@ input:checked+.slider:before {
     text-align: center
 }
 
-
 /* fancybox override */
+
 .fancybox-slide>* {
     padding: 0px;
     margin: 50px auto;
@@ -384,7 +391,19 @@ input:checked+.slider:before {
 }
 
 
+/* --- general ribbon, add this class */
+.hd-ribbon {
+    min-width: 30px;
+    min-height: 16px;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    color: #fff;
+    background: red
+}
+
 /*------- unwanted stuff, just add selector to the list -----*/
+
 .collection-box-sidebar {
     display: none !important
 }
