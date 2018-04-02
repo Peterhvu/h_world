@@ -209,7 +209,6 @@ input#searchBox {
 #panes {
     clear: both;
     min-height: 100px;
-    margin: 0px !important;
 }
 
 .itm {
