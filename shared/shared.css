@@ -208,12 +208,8 @@ input#searchBox {
 
 #panes {
     clear: both;
-    min-height: 100px
-}
-
-.Phb ul {
-    margin: 0px;
-    padding: 0px
+    min-height: 100px;
+    margin: 0px !important;
 }
 
 .itm {
