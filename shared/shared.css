@@ -7,7 +7,7 @@ h1,
 h2 {
     text-align: center;
     clear: both;
-    background-color: #effad7;
+    background: linear-gradient(160deg,#92efcb, #effad7); 
     margin: 0px;
     padding: 10px;
 }
@@ -42,14 +42,17 @@ a {
 .segments li {
     float: left;
     list-style: none;
-    width: 95%;
-    height: 40px;
-    line-height: 40px;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
     text-align: center;
-    background: #6ddada;
-    margin: 4px
+    background: linear-gradient(90deg,#92efcb, #d9fff1, #92efcb); 
+    margin: 1px 0px;
+    border-radius: 4px
 }
-
+.segments li:hover {
+    background: #d6ffef;
+}
 #content {
     margin-bottom: 100px;
 }
@@ -106,10 +109,15 @@ a {
     text-align: center;
     margin-left: 5px;
     margin-bottom: 5px;
-    background: #faf486;
+    background: linear-gradient(120deg, #f1fbb6, #cfea85);
     cursor: pointer;
     box-sizing: border-box;
     overflow: hidden
+}
+
+.paging:hover,
+.navItem:hover {
+    background: #cfea85
 }
 
 .paging.nextPg {
