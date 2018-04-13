@@ -6,11 +6,35 @@
     <link rel="apple-touch-icon" type="image/png" href="favicon.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="app.css" rel="stylesheet">
     <style>
+        h1 {
+            text-align: center
+        }
 
+        h2 {
+            text-align: center;
+            background: yellow;
+            height: auto;
+            line-height: 25px;
+        }
+
+        .getBtn {
+            width: 200px;
+            height: 50;
+            line-height: 50px;
+            background: #aadbc1;
+            font-size: 1.5em;
+            text-align: center;
+            border-radius: 10px;
+            margin: auto
+        }
+
+        .mainContent {
+            margin-top: 20px
+        }
     </style>
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous">
     </script>
 </head>
 
@@ -29,11 +53,27 @@
 
     <img src="" alt="" class="tempImg">
 
-    <script src="app.js">
+    <script>
+        function getGitHubEmojis() {
+            var jsonDL = $.getJSON("https://api.github.com/emojis",
+                function (data, textStatus, jqXHR) {
+                    $('h2').empty().append("json downloaded: ", this.url)
+                    var content = $('.mainContent').empty();
+
+                    for (var propName in data) {
+                        if (data.hasOwnProperty(propName)) {
+                            var propValue = data[propName],
+                                element = $('.tempImg').clone().removeClass().attr('src', propValue);
+                            content.append(element);
+                        }
+                    }
+
+                }
+            ).fail(function () {
+                $('h2').empty().append("getJSON failed").css('background', 'red')
+            });
+        }
     </script>
-
-
-
 </body>
 
 </html>
