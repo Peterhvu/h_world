@@ -1,0 +1,412 @@
+body {
+    padding-top: 20px;
+    padding-bottom: 50px
+}
+
+h1,
+h2 {
+    text-align: center;
+    clear: both;
+    background: linear-gradient(160deg,#92efcb, #effad7); 
+    margin: 0px;
+    padding: 10px;
+}
+
+ul,
+ol {
+    margin: 0px;
+    padding: 0px;
+}
+
+.homeBtn,
+.menuBtn {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 25px;
+    text-align: center;
+    font-size: 3em;
+    text-decoration: none;
+}
+
+.menuBtn {
+    right: 10px;
+    cursor: pointer;
+    color: blue
+}
+
+a {
+    display: block
+}
+
+.segments li {
+    float: left;
+    list-style: none;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    background: linear-gradient(90deg,#92efcb, #d9fff1, #92efcb); 
+    margin: 1px 0px;
+    border-radius: 4px
+}
+.segments li:hover {
+    background: #d6ffef;
+}
+#content {
+    margin-bottom: 100px;
+}
+
+.Bee #content {
+    padding-bottom: 100px;
+}
+
+.hide {
+    display: none !important;
+}
+
+.show {
+    visibility: visible
+}
+
+.blkBG {
+    background: black
+}
+
+.oldBG {
+    background: #ffbdf9;
+}
+
+.uCtrl {
+    float: right
+}
+
+.popularTags {
+    width: 100%;
+    height: 40px;
+    font-size: 16px;
+    text-align: center;
+}
+
+#vLinks,
+.search {
+    clear: both;
+}
+
+.search {
+    float: right
+}
+
+.paging,
+.navItem {
+    font-size: 1.2em;
+    color: blue;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    display: block;
+    float: left;
+    text-align: center;
+    margin-left: 5px;
+    margin-bottom: 5px;
+    background: linear-gradient(120deg, #f1fbb6, #cfea85);
+    cursor: pointer;
+    box-sizing: border-box;
+    overflow: hidden
+}
+
+.paging:hover,
+.navItem:hover {
+    background: #cfea85
+}
+
+.paging.nextPg {
+    width: 100%
+}
+
+#mainNav {
+    display: table;
+    width: 100%;
+    margin-top: 10px
+}
+
+#mainNav .navItem {
+    display: table-cell;
+    width: auto;
+    min-width: 50px;
+    float: none;
+    border: 1px solid gold
+}
+
+.catSelect {
+    background: #faf486;
+    width: 90%;
+    font-size: 1.2em;
+    text-align: center;
+    margin: 15px;
+    border-radius: 8px;
+    border: 1px solid #ace044;
+    float: right
+}
+
+.selectedBG {
+    background: burlywood !important
+}
+
+input#searchBox,
+.clrSearch {
+    float: left;
+    width: 200px;
+    height: 40px;
+    font-size: 14px;
+    text-align: center;
+    border-radius: 8px;
+    border: 2px solid #d5d5d5;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    margin: 4px 0px;
+}
+
+input#searchBox {
+    width: 99%;
+    padding-right: 40px;
+}
+
+.clrSearch {
+    width: 40px;
+    border-radius: 0px 8px 8px 0px;
+    margin-left: -40px;
+    background: #d5d5d5;
+}
+
+.clrSearch:active {
+    outline: none
+}
+
+.error {
+    clear: both;
+    font-size: 1.2em;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    color: red;
+    background: yellow;
+    margin-bottom: 30px
+}
+
+#lSwitch,
+#bSwitch,
+#bSwitch span {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 60px;
+    height: 60px;
+}
+
+#bSwitch,
+#bSwitch span {
+    top: 60px;
+}
+
+#bSwitch span {
+    width: 2px;
+    background: black
+}
+
+#panes {
+    clear: both;
+    min-height: 100px;
+}
+
+.itm {
+    display: inline-block;
+    background: #fff7e7;
+    margin: 6px 2px;
+    width: 48%;
+    height: auto;
+    border-radius: 14px 0px;
+    color: blue;
+    vertical-align: top;
+    position: relative
+}
+
+@media screen and (min-width: 600px) {
+    .itm {
+        width: 32%;
+        max-width: 240px;
+    }
+}
+
+.itm img,
+.itm video {
+    width: 100%;
+    border-radius: 14px 0px
+}
+
+.itm p {
+    font: 14px/18px Arial, sans-serif;
+    margin: 0;
+    height: 44px;
+    overflow-y: scroll
+}
+
+.linkLow {
+    padding-bottom: 4px;
+}
+
+.infoBtn,
+.likeBtn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px;
+    cursor: pointer
+}
+
+.likeBtn {
+    left: 0;
+    width: 20px;
+}
+
+.likedBG {
+    background-color: pink !important
+}
+
+.info {
+    height: 100px;
+    overflow: scroll
+}
+
+.info p {
+    height: auto
+}
+
+iframe.activeVidPlayer {
+    width: 350px;
+    height: 250px;
+}
+
+.crossRef {
+    clear: both;
+    display: block;
+    width: 100%;
+    background: antiquewhite;
+    text-align: center
+}
+
+.clearout {
+    display: block;
+    font-size: 60px;
+    position: fixed;
+    right: 10px;
+    bottom: 2px;
+    z-index: 10;
+    background-color: rgba(128, 128, 128, 0);
+    line-height: 60px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.clearout.vidLarge {
+    right: 50px;
+}
+
+/* slider switch */
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    display: none;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked+.slider {
+    background-color: #2196F3;
+}
+
+input:focus+.slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked+.slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Rounded sliders */
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+.hdSwitch {
+    clear: both;
+    font-size: 1.3em;
+    text-align: center
+}
+
+/* fancybox override */
+
+.fancybox-slide>* {
+    padding: 0px;
+    margin: 50px auto;
+    max-width: 90%;
+    max-height: 90%;
+}
+
+.fancybox-slide>iframe.activeVidPlayer {
+    width: 90%;
+    height: 90%;
+}
+
+
+/* --- general ribbon, add this class */
+.hd-ribbon {
+    min-width: 30px;
+    min-height: 16px;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    color: #fff;
+    background: red
+}
+
+/*------- unwanted stuff, just add selector to the list -----*/
+
+.collection-box-sidebar {
+    display: none !important
+}
