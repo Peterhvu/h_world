@@ -51,8 +51,6 @@
 
     </div>
 
-    <img src="" alt="" class="tempImg">
-
     <script>
         function getGitHubEmojis() {
             var jsonDL = $.getJSON("https://api.github.com/emojis",
@@ -62,12 +60,10 @@
 
                     for (var propName in data) {
                         if (data.hasOwnProperty(propName)) {
-                            var propValue = data[propName],
-                                element = $('.tempImg').clone().removeClass().attr('src', propValue);
-                            content.append(element);
+                            var img = '<img src="'+ data[propName] +'">';
+                            content.append(img);
                         }
                     }
-
                 }
             ).fail(function () {
                 $('h2').empty().append("getJSON failed").css('background', 'red')
